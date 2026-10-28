@@ -50,10 +50,10 @@ video {
   max-width: 100%;
 }
 
-/* CABEÇALHO FIXO DA ESCOLA */
+/* CABEÇALHO FIXO */
 .top {
- position: fixed;
- top: 0;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -255,14 +255,11 @@ main {
   color: var(--brown);
   box-shadow: 0 7px 24px #5c452b12;
   transition: transform 0.2s, box-shadow 0.2s;
-
-  /* DIFICULTAR A SELEÇÃO E O MENU DE TOQUE NAS FOTOS */
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-drag: none;
-  user-select: none;
   touch-action: manipulation;
 }
 
@@ -271,7 +268,6 @@ main {
   box-shadow: 0 10px 28px #5c452b20;
 }
 
-/* FOTOS INTEIRAS, SEM CORTES */
 .card img {
   display: block;
   width: 100%;
@@ -282,7 +278,6 @@ main {
   object-fit: contain;
   object-position: center;
   border-radius: 4px;
-
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -354,7 +349,6 @@ dialog {
   padding: 12px;
   background: #fffaf0;
   box-shadow: 0 12px 60px #0005;
-
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -371,7 +365,6 @@ dialog img {
   max-width: 88vw;
   max-height: 82vh;
   object-fit: contain;
-
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -403,6 +396,10 @@ dialog img {
 
 /* CELULARES */
 @media (max-width: 520px) {
+  :root {
+    --top-height: 76px;
+  }
+
   .top {
     min-height: 76px;
     gap: 10px;
@@ -428,7 +425,6 @@ dialog img {
     display: none;
   }
 
-  /* FOTOS CENTRALIZADAS NO CELULAR */
   .gallery {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
@@ -469,7 +465,6 @@ dialog img {
     background-position: center top;
   }
 
-  /* O VÍDEO CONTINUA DENTRO DA TELA */
   .video {
     width: 100%;
     max-width: 100%;
