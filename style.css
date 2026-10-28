@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
 :root {
   --cream: #f7f0df;
   --paper: #fffdf7;
@@ -8,24 +9,30 @@
   --red: #d9272e;
   --gold: #c79a3b;
   --line: #e6d7b9;
+  --top-height: 88px;
 }
+
 /* CONFIGURAÇÃO GERAL */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
   width: 100%;
   max-width: 100%;
   overflow-x: clip;
+  scroll-padding-top: calc(var(--top-height) + 12px);
 }
+
 body {
   margin: 0;
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  padding-top: var(--top-height);
   overflow-x: clip;
   color: var(--dark);
   font-family: 'DM Sans', Arial, sans-serif;
@@ -37,26 +44,34 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
 img,
 video {
   max-width: 100%;
 }
-/* CABEÇALHO DA ESCOLA */
+
+/* CABEÇALHO FIXO DA ESCOLA */
 .top {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+
   display: flex;
   align-items: center;
   gap: 14px;
+
   width: 100%;
   min-width: 0;
   min-height: 88px;
   padding: 12px clamp(16px, 5vw, 64px);
+
   background: #f7f0df;
   border-bottom: 2px solid #d6b76a;
   box-shadow: 0 3px 12px #72574710;
 }
+
 .logo {
   display: block;
   width: 62px;
@@ -68,9 +83,11 @@ video {
   border-radius: 60%;
   padding: 2px;
 }
+
 .school-info {
   min-width: 0;
 }
+
 .school-name {
   margin: 0;
   color: #687448;
@@ -79,12 +96,14 @@ video {
   line-height: 1.3;
   overflow-wrap: break-word;
 }
+
 .school-subtitle {
   margin: 3px 0 0;
   color: #8b7458;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
 }
+
 .top-label {
   margin-left: auto;
   flex-shrink: 0;
@@ -94,6 +113,7 @@ video {
   letter-spacing: 0.08em;
   text-align: right;
 }
+
 /* ABERTURA */
 .hero,
 .footer {
@@ -103,16 +123,19 @@ video {
   padding: clamp(48px, 9vw, 100px) 22px;
   background: rgba(255, 253, 247, 0.82);
 }
+
 .school {
   font-size: 0.86rem;
   letter-spacing: 0.06em;
   margin: 0 0 22px;
 }
+
 .flower {
   font-size: 3rem;
   line-height: 1.1;
   margin: 18px 0;
 }
+
 .eyebrow {
   font-size: 0.72rem;
   font-weight: 600;
@@ -120,6 +143,7 @@ video {
   color: #98754e;
   margin: 0 0 12px;
 }
+
 h1,
 h2 {
   font-family: 'Playfair Display', Georgia, serif;
@@ -128,25 +152,30 @@ h2 {
   color: var(--brown);
   overflow-wrap: break-word;
 }
+
 h1 {
   font-size: clamp(2.8rem, 8vw, 5.2rem);
   margin: 0;
 }
+
 h2 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   margin: 0 0 14px;
 }
+
 .poem {
   font-family: Georgia, serif;
   font-style: italic;
   margin: 12px 0 24px;
 }
+
 .line {
   width: 78px;
   height: 1px;
   background: #c6a56c;
   margin: 22px auto;
 }
+
 .button {
   display: inline-block;
   max-width: 100%;
@@ -159,14 +188,17 @@ h2 {
   font-size: 0.88rem;
   transition: background 0.2s;
 }
+
 .button:hover {
   background: #f2e3bf;
 }
+
 /* SEÇÕES */
 main {
   width: 100%;
   min-width: 0;
 }
+
 .section {
   width: 100%;
   max-width: 1200px;
@@ -174,10 +206,12 @@ main {
   margin: 0 auto;
   padding: clamp(48px, 8vw, 84px) 20px;
 }
+
 .soft {
   max-width: none;
   background: rgba(248, 240, 223, 0.88);
 }
+
 .soft > * {
   width: 100%;
   max-width: 1160px;
@@ -185,18 +219,21 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+
 .heading {
   width: 100%;
   min-width: 0;
   text-align: center;
   margin-bottom: 30px;
 }
+
 .heading p:not(.eyebrow) {
   width: 100%;
   max-width: 580px;
   margin: 0 auto;
   overflow-wrap: break-word;
 }
+
 /* GALERIA DE FOTOS */
 .gallery {
   display: grid;
@@ -206,6 +243,7 @@ main {
   gap: 16px;
   align-items: start;
 }
+
 .card {
   display: block;
   width: 100%;
@@ -220,11 +258,22 @@ main {
   color: var(--brown);
   box-shadow: 0 7px 24px #5c452b12;
   transition: transform 0.2s, box-shadow 0.2s;
+
+  /* DIFICULTAR A SELEÇÃO E O MENU DE TOQUE NAS FOTOS */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  user-select: none;
+  touch-action: manipulation;
 }
+
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 28px #5c452b20;
 }
+
 /* FOTOS INTEIRAS, SEM CORTES */
 .card img {
   display: block;
@@ -236,25 +285,38 @@ main {
   object-fit: contain;
   object-position: center;
   border-radius: 4px;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
+
 .card span {
   display: block;
   font-size: 0.76rem;
   padding: 7px 3px 2px;
   overflow-wrap: break-word;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
+
 .note {
   text-align: center;
   font-size: 0.8rem;
   color: #8d7a67;
   margin-top: 18px;
 }
+
 /* VÍDEO */
 .video {
   width: 100%;
   max-width: 940px;
   min-width: 0;
 }
+
 .video-box {
   position: relative;
   width: 100%;
@@ -269,6 +331,7 @@ main {
   box-shadow: 0 10px 30px #5c452b1a;
   overflow: hidden;
 }
+
 .video-box video {
   position: absolute;
   top: 9px;
@@ -283,6 +346,7 @@ main {
   background: #211b17;
   border-radius: 6px;
 }
+
 /* FOTOS AMPLIADAS */
 dialog {
   width: fit-content;
@@ -293,10 +357,16 @@ dialog {
   padding: 12px;
   background: #fffaf0;
   box-shadow: 0 12px 60px #0005;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
+
 dialog::backdrop {
   background: #34291fcc;
 }
+
 dialog img {
   display: block;
   width: auto;
@@ -304,7 +374,13 @@ dialog img {
   max-width: 88vw;
   max-height: 82vh;
   object-fit: contain;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
+
 #close {
   display: block;
   margin-left: auto;
@@ -314,17 +390,20 @@ dialog img {
   font-size: 2rem;
   cursor: pointer;
 }
+
 /* TABLETS */
 @media (max-width: 950px) {
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
+
   .section {
     padding-left: 18px;
     padding-right: 18px;
   }
 }
+
 /* CELULARES */
 @media (max-width: 520px) {
   .top {
@@ -332,26 +411,32 @@ dialog img {
     gap: 10px;
     padding: 10px 14px;
   }
+
   .logo {
     width: 50px;
     height: 50px;
     flex-basis: 50px;
   }
+
   .school-name {
     font-size: 0.9rem;
   }
+
   .school-subtitle {
     font-size: 0.66rem;
     letter-spacing: 0.02em;
   }
+
   .top-label {
     display: none;
   }
+
   /* FOTOS CENTRALIZADAS NO CELULAR */
   .gallery {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
+
   .gallery .card {
     width: 85%;
     max-width: 85%;
@@ -359,42 +444,41 @@ dialog img {
     margin: 0 auto;
     justify-self: center;
   }
+
   .gallery .card img {
     width: 100%;
     height: auto;
     max-height: none;
     object-fit: contain;
   }
+
   .section {
     padding-left: 16px;
     padding-right: 16px;
   }
+
   .hero,
   .footer {
     padding-left: 18px;
     padding-right: 18px;
   }
+
   .top .school-name {
     overflow-wrap: anywhere;
   }
+
   body {
     background-attachment: scroll;
     background-position: center top;
   }
+
   /* O VÍDEO CONTINUA DENTRO DA TELA */
   .video {
     width: 100%;
     max-width: 100%;
   }
+
   .video-box {
     width: 100%;
   }
-}
-/* DIFICULTAR O SALVAMENTO DAS FOTOS */
-.gallery img,
-dialog img {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-drag: none;
 }
