@@ -12,11 +12,7 @@
 <body>
   <!-- CABEÇALHO DA ESCOLA -->
   <div class="top">
-    <img
-      class="logo"
-      src="logo.png"
-      alt="CME Crescendo e Aprendendo"
-    >
+    <img class="logo" src="logo.png" alt="CME Crescendo e Aprendendo">
 
     <div class="school-info">
       <p class="school-name">CME Crescendo e Aprendendo</p>
@@ -35,10 +31,7 @@
     <p class="poem">Vinicius de Moraes</p>
     <div class="line"></div>
     <p>Tia Cida · 2º período 01</p>
-
-    <a class="button" href="#plantando">
-      Veja as atividades ↓
-    </a>
+    <a class="button" href="#plantando">Veja as atividades ↓</a>
   </header>
 
   <main>
@@ -132,19 +125,11 @@
       <div class="heading">
         <p class="eyebrow">A SEGUIR,</p>
         <h2>Vídeo da apresentação</h2>
-        <p>
-          Confira o vídeo da apresentação preparada com muito carinho
-          pelos nossos pequenos!
-        </p>
+        <p>Confira o vídeo da apresentação preparada com muito carinho pelos nossos pequenos!</p>
       </div>
 
       <div class="video-box">
-        <video
-          controls
-          playsinline
-          webkit-playsinline
-          preload="metadata"
-        >
+        <video controls playsinline webkit-playsinline preload="metadata">
           <source src="./IMG_01591.mp4" type="video/mp4">
           Seu navegador não conseguiu reproduzir o vídeo.
         </video>
@@ -156,16 +141,8 @@
   <footer class="footer">
     <div class="flower" aria-hidden="true">🌻</div>
     <p class="eyebrow">ESCOLA DE PORTAS ABERTAS:</p>
-
-    <h2>
-      Um Mergulho na<br>
-      Literatura Brasileira
-    </h2>
-
-    <p class="thanks">
-      Agradecemos a todos pelo carinho, pela atenção e pela presença neste momento tão especial!
-    </p>
-
+    <h2>Um Mergulho na<br>Literatura Brasileira</h2>
+    <p class="thanks">Agradecemos a todos pelo carinho, pela atenção e pela presença neste momento tão especial!</p>
     <div class="line"></div>
     <p class="school">CME Crescendo e Aprendendo</p>
     <small>Espera Feliz/MG, 2026</small>
@@ -191,36 +168,37 @@
       });
     });
 
-    closeButton.addEventListener('click', () => {
-      dialog.close();
-    });
+    closeButton.addEventListener('click', () => dialog.close());
 
     dialog.addEventListener('click', event => {
-      if (event.target === dialog) {
-        dialog.close();
-      }
+      if (event.target === dialog) dialog.close();
     });
 
     dialog.addEventListener('close', () => {
       largeImage.removeAttribute('src');
     });
 
-    // AJUSTAR O ESPAÇO DO CABEÇALHO FIXO
+    // MANTER O ESPAÇO DO CONTEÚDO IGUAL À ALTURA DO CABEÇALHO
     function ajustarCabecalho() {
-      if (topHeader) {
-        document.documentElement.style.setProperty(
-          '--top-height',
-          topHeader.offsetHeight + 'px'
-        );
-      }
+      if (!topHeader) return;
+
+      const altura = topHeader.offsetHeight;
+
+      document.documentElement.style.setProperty(
+        '--top-height',
+        altura + 'px'
+      );
+
+      document.body.style.paddingTop = altura + 'px';
     }
 
     ajustarCabecalho();
 
+    window.addEventListener('load', ajustarCabecalho);
     window.addEventListener('resize', ajustarCabecalho);
     window.addEventListener('orientationchange', ajustarCabecalho);
 
-    if ('ResizeObserver' in window) {
+    if ('ResizeObserver' in window && topHeader) {
       new ResizeObserver(ajustarCabecalho).observe(topHeader);
     }
 
@@ -240,7 +218,6 @@
     document.addEventListener('dragstart', bloquearAcaoNaFoto);
     document.addEventListener('selectstart', bloquearAcaoNaFoto);
 
-    // EVITAR QUE O MENU DE TOQUE PROLONGADO SEJA FACILITADO NAS FOTOS
     document.querySelectorAll('.card, .card img, #lightbox, #large')
       .forEach(element => {
         element.addEventListener('contextmenu', event => {
