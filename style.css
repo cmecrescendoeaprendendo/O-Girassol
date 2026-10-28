@@ -52,22 +52,16 @@ video {
 
 /* CABEÇALHO FIXO DA ESCOLA */
 .top {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   gap: 14px;
-
   width: 100%;
   min-width: 0;
   min-height: 88px;
   padding: 12px clamp(16px, 5vw, 64px);
-
   background: #f7f0df;
   border-bottom: 2px solid #d6b76a;
   box-shadow: 0 3px 12px #72574710;
